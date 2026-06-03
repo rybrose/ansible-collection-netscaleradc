@@ -8,6 +8,7 @@ jobs:
   release:
     permissions:
       contents: write
+    # yamllint disable-line rule:line-length
     uses: ansible/team-devtools/.github/workflows/release_collection.yml@a7f2500fb428f217418c6c39c016319cd76df408  # main
     with:
       environment: release

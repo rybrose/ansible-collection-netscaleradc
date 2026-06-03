@@ -34,10 +34,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
 
-      - name: Set up Python 3.11
+      - name: Set up Python 3.12
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Install Python dependencies
         run: |
@@ -54,13 +54,15 @@ jobs:
         id: mend_scan
         continue-on-error: true
         run: |
-          mend dep --dir . --scope "ansible-collection-netscaleradc" --non-interactive --export-results mend-results.json
+          mend dep --dir . --scope "ansible-collection-netscaleradc" \
+            --non-interactive --export-results mend-results.json
 
       - name: Convert results to SARIF
         if: always() && steps.mend_scan.outcome != 'skipped'
         continue-on-error: true
         run: |
-          mend dep --dir . --scope "ansible-collection-netscaleradc" --non-interactive --format sarif --filename mend-output.sarif || true
+          mend dep --dir . --scope "ansible-collection-netscaleradc" \
+            --non-interactive --format sarif --filename mend-output.sarif || true
 
       - name: Upload Mend SARIF to GitHub Security tab
         if: always() && hashFiles('mend-output.sarif') != ''

@@ -5,14 +5,13 @@
 
 from __future__ import absolute_import, division, print_function
 
-__metaclass__ = type
 
 import codecs
 import json
 import traceback
 
 from ansible.module_utils._text import to_text
-from ansible.module_utils.six.moves.urllib.parse import quote
+from urllib.parse import quote
 from ansible.module_utils.urls import fetch_url
 
 from .constants import (
