@@ -13,7 +13,7 @@ Tested with Ansible Core >=2.15 versions.
 
 ### Python version compatibility
 
-Tested with Python >=3.11
+Tested with Python 3.12 (requires Python >=3.12)
 
 ## Installation
 

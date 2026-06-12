@@ -18,8 +18,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-from __future__ import (absolute_import, division, print_function)
-__metaclass__ = type
 
 DOCUMENTATION = r"""
     name: ssh_netscaler_adc
