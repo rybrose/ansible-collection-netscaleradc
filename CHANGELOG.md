@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Replaced `ansible.module_utils.six.moves.urllib.parse.quote` with `urllib.parse.quote` in `client.py` — the `six` compatibility shim is no longer needed.
 - Removed `__metaclass__ = type` boilerplate from all 965 plugin files — dead code in Python 3.
 - CI test matrices updated: Python 3.12 added to all jobs.
+- Minimum required Ansible Core version raised from 2.15 to 2.16.
 
 ## [2.16.0] - 2026-03-26
 
