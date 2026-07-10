@@ -1,7 +1,7 @@
 ---
 - name: Get NS version
   delegate_to: localhost
-  uri:
+  ansible.builtin.uri:
     url: "{{ nitro_protocol }}://{{ nsip }}/nitro/v1/config/nsversion"
     method: GET
     headers:
@@ -11,12 +11,12 @@
   register: ns_ver_resp
 
 - name: Set firmware capability facts
-  set_fact:
+  ansible.builtin.set_fact:
     _ns_major: "{{ ns_ver_resp.json.nsversion.version | regex_search('NS(\\d+\\.\\d+)', '\\1') | first | float }}"
     _ns_build: "{{ ns_ver_resp.json.nsversion.version | regex_search('Build (\\d+\\.\\d+)', '\\1') | first | float }}"
 
 - name: Set http2smallwndtimeout support fact (requires 14.1-72.61+)
-  set_fact:
+  ansible.builtin.set_fact:
     supports_http2smallwndtimeout: >-
       {{ (_ns_major | float > 14.1) or (_ns_major | float == 14.1 and _ns_build | float >= 72.61) }}
 
