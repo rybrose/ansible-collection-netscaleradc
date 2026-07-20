@@ -33,7 +33,11 @@ NITRO_ATTRIBUTES_ALIASES = {
     "gslbservice": {
         "ip": "ipaddress",
         "ipaddress": "ip",  # For PUT payloads and GET responses
-    }
+    },
+    # NITRO-BUG: nslimitselector GET returns 'name' instead of 'selectorname'
+    "nslimitselector": {
+        "name": "selectorname",
+    },
 }
 
 # https://docs.ansible.com/ansible/latest/dev_guide/developing_program_flow_modules.html#argument-spec
